@@ -1,1 +1,17 @@
-<xml xmlns="https://developers.google.com/blockly/xml"/>
+<xml xmlns="https://developers.google.com/blockly/xml"><block type="pxt-on-start" id="zJMrA2Yfu`pJhvYvR_m_" x="0" y="0"><statement name="HANDLER"><block type="device_set_digital_pin" id="rYXK}q+FrDeizzw!%S0T"><field name="name">DigitalPin.P2</field><value name="value"><shadow type="math_number_minmax" id="iXo!=@:vN@7QGix/OjN["><mutation min="0" max="1" label="Number" precision="0"/><field name="SLIDER">1</field></shadow></value></block></statement></block><block type="device_forever" id="~0[U#Q?0[MaA!d3*bDX6" x="430" y="0"><comment pinned="false" h="80" w="160" relx="10" rely="10">let brightness = 0
+const delaymax = 20
+const steps = 1
+pins.digitalWritePin(DigitalPin.P2, 1)
+
+basic.forever(function () {
+const delay = brightness * delaymax
+console.log(delay)
+if (Math.ceil(delay) != delaymax) pins.digitalWritePin(DigitalPin.P2, 0)
+basic.pause(delaymax - delay)
+if (Math.floor(delay)!= 0) pins.digitalWritePin(DigitalPin.P2, 1)
+basic.pause(delay)
+})
+basic.forever(function () {
+brightness = pins.analogReadPin(AnalogPin.P0) / 1023
+basic.pause(delaymax)
+})</comment><statement name="HANDLER"><block type="device_set_digital_pin" id="#m2xd{j9}2i|YWct1y9A"><field name="name">DigitalPin.P2</field><value name="value"><shadow type="math_number_minmax" id="7.S?Md$44a%ONLiDv~Cn"><mutation min="0" max="1" label="Number" precision="0"/><field name="SLIDER">1</field></shadow></value><next><block type="device_pause" id="AGz,@PmlVZa4|g6~Uyv:"><value name="pause"><shadow type="timePicker" id="$-tuB[c5;(|eA6Sw9pwb"><field name="ms">4900</field></shadow></value><next><block type="device_set_digital_pin" id="pyy4XzwM{f[Y-t2utfuW"><field name="name">DigitalPin.P2</field><value name="value"><shadow type="math_number_minmax" id="v|@X#n[?[w{csd3kyrvi"><mutation min="0" max="1" label="Number" precision="0"/><field name="SLIDER">0</field></shadow></value><next><block type="device_pause" id="I%fmKc[7T{n{:!m@4?/Q"><value name="pause"><shadow type="timePicker" id="[bgeIK[D9YIrT`^e!-N."><field name="ms">100</field></shadow></value></block></next></block></next></block></next></block></statement></block></xml>
