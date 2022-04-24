@@ -22,6 +22,6 @@ basic.forever(function () {
     basic.pause(10000 - 250)
     pins.analogWritePin(AnalogPin.P2, 1011.5)
     basic.pause(250)
-    radio.sendNumber(randint(60, 120))
+    radio.sendNumber(((pins.analogReadPin(AnalogPin.P0) / 1023)*60)+60)
 })
 radio.setGroup(1)
